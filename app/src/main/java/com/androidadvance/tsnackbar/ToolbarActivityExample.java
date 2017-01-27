@@ -1,9 +1,9 @@
 package com.androidadvance.tsnackbar;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,15 +12,16 @@ import android.widget.TextView;
 
 import com.androidadvance.topsnackbar.TSnackbar;
 
+/**
+ * Created by martinvano on 27/01/2017.
+ */
 
-public class MainActivity extends AppCompatActivity {
-
+public class ToolbarActivityExample extends AppCompatActivity {
     private RelativeLayout relative_layout_main;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_toolbar);
 
         Button button_example_1 = (Button) findViewById(R.id.button_example_1);
         Button button_example_2 = (Button) findViewById(R.id.button_example_2);
@@ -28,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         Button button_example_4 = (Button) findViewById(R.id.button_example_4);
         Button button_example_5 = (Button) findViewById(R.id.button_example_5);
         Button button_example_6 = (Button) findViewById(R.id.button_example_6);
-        Button button_toolbar = (Button) findViewById(R.id.button_example_toolbar);
 
         relative_layout_main = (RelativeLayout) findViewById(R.id.relative_layout_main);
 
@@ -145,10 +145,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        button_toolbar.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, ToolbarActivityExample.class));
-            }
-        });
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+
+        setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.drawable.ic_android_green_24dp);
+//        toolbar.setNavigationOnClickListener(
+//                new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        Toast.makeText(AndroidToolbarExample.this, "clicking the toolbar!", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//
+//        );
     }
 }
