@@ -87,6 +87,7 @@ You are a hero.
 #### TODO://
 
 * Persistent mode.
+* Working inside dialogs
 * Waiting for your suggestions
 
 #### Changes List
